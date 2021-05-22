@@ -1,0 +1,23 @@
+
+.boxout{
+    background-color: blue;
+    padding-bottom: 20%;
+    margin: 5%;
+}
+.boxin{
+    background-color:yellow;
+    align-items: center;
+    margin: 5%;
+    float: left;
+}
+
+
+
+
+
+
+.aboutimage{
+    width: 10%;
+    height: 20%;
+ 
+  }

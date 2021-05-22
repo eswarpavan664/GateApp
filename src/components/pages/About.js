@@ -1,20 +1,34 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
- 
+import image1 from '../../images/worker.png';
+import '../about.css';
 class  About extends Component {
   render() {
     return (
       <div>
-        <h2>STUFF</h2>
-        <p>Mauris sem velit, vehicula eget sodales vitae,
-        rhoncus eget sapien:</p>
-        <ol>
-          <li>Nulla pulvinar diam</li>
-          <li>Facilisis bibendum</li>
-          <li>Vestibulum vulputate</li>
-          <li>Eget erat</li>
-          <li>Id porttitor</li>
-        </ol>
+        <section>
+
+        </section>
+        <section>
+            <div className="boxout">
+
+              <h1>
+                dhdjhfhd
+              </h1>
+
+              <div className="boxin">
+              <img src={image1} className="aboutimage"/>
+              </div>
+
+            </div>
+
+
+
+
+
+
+        </section>
+         
       </div>
     );
   }
