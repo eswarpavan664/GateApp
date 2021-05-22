@@ -23,7 +23,7 @@ function Home() {
 
           <section style={{marginTop:'5%'}}>
               <div className="background-imag">
-                  <h1>welcome to ABCD Website </h1>
+                  <h1>welcome Pavaneswar </h1>
                 
               </div>
 
