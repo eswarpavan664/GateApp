@@ -10,27 +10,37 @@ import {
   NavLink,
   HashRouter
 } from "react-router-dom";
+ 
 import Image1 from '../../images/presentation.png';
 import Image2 from '../../images/project.png';
 import Image3 from '../../images/worker.png';
 import foot from "../foot";
 import backimg from '../../images/Untitled design.png'
+import {Carousel} from '3d-react-carousal';
+
+ 
+
 function Home() {
+  let slides = [
+    <img  src="https://picsum.photos/800/300/?random" alt="1" />,
+    <img  src="https://picsum.photos/800/301/?random" alt="2" />  ,
+    <img  src="https://picsum.photos/800/302/?random" alt="3" />  ,
+    <img  src="https://picsum.photos/800/303/?random" alt="4" />  ,
+    <img src="https://picsum.photos/800/304/?random" alt="5" />   ];
   return (
           
-          <section>     
+          <section style={{backgroundColor:'#5DADE2'  }}>     
 
 
-          <section style={{marginTop:'5%'}}>
-              <div className="background-imag">
-                  <h1>welcome Pavaneswar </h1>
-                
-              </div>
+        
 
+            <div style={{marginTop:'4%'}}>
+             
+            </div>
+            <Carousel slides={slides} autoplay={true} interval={3000}/>
+           
 
-          </section>
-
-
+          
 
 
 

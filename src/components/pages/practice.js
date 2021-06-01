@@ -1,7 +1,9 @@
+/* eslint-disable react/no-direct-mutation-state */
+/* eslint-disable no-restricted-globals */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, {useState,useEffect} from "react";
+import React, {useState,useEffect,Fragment} from "react";
 import firebase from "../firebase";
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
@@ -11,122 +13,162 @@ import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button';
-
  
+import data from "../data";
  
-
 
 class practice extends React.Component{
-   constructor() {
+
+  constructor(props){
     super();
-
     this.state = {
-      color: 'green'
+      s:0,
+        answer:0,
+        setcolor:['red','green','none'],
+        c1:2,
+        c2:2,
+        c3:2,
+        c4:2,
+      Questions :[
+    
+        {
+             
+            Question:"what is your name?",
+            findAnswer:["pavan","eswar","pavaneswar","unknown"],
+            rightanswer:"pavaneswar"
+        },
+    
+        {
+             
+            Question:"what your age?",
+            findAnswer:["above 18","below 18","above 30","above 50"],
+            rightanswer:"below 18"
+        },
+    
+        {
+         
+            Question:"what languages do u know",
+            findAnswer:["c","cpp","react","php"],
+            rightanswer:"react"
+        },
+    
+        {
+          
+            Question:"what is react",
+            findAnswer:["language for web","language for android","language for ios","language for cross plateform"],
+            rightanswer:"language for cross plateform"
+        },
+        
+    ]
+   
     };
-
-    this.onRadioChange = this.onRadioChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-
+    this.onValueChange = this.onValueChange.bind(this);
+   
+    
   }
 
-  onRadioChange = (e) => {
-    this.setState({
-      color: e.target.value
-    });
+  onValueChange(event) {
+   
+     if(event.target.value===this.state.Questions[this.state.s].rightanswer)
+     {
+          this.setState({
+             selectedOption:event.target.value,
+              setcolor:'lawngreen'
+        
+             })
+     }
+     
+      
+   
+     else{
+      this.setState({
+        selectedOption:event.target.value,
+          setcolor:'white'
+   
+        })
+     }
+      
+      
   }
 
-  onSubmit = (e) => {
-    e.preventDefault();
-    console.log(this.state);
+ 
+
+  checkanswer=(props)={
+
+     
+
+
+
   }
-  
+  nextquestion =()=>{
+    
+  }
 
   render() {
-  const animals = [
-    { id: 1, animal: "Dog" },
-    { id: 2, animal: "Bird" },
-    { id: 3, animal: "Cat" },
-    { id: 4, animal: "Mouse" },
-    { id: 5, animal: "Horse" }
-  ];
-        
+    return (
 
-  return (
-    <ul>
-      {animals.map(item => (
-        <div>
-          <form onSubmit={this.onSubmit}>
-          <strong>Select Color:</strong>
+          <div style={{margin:'20%'}}>
+          <form onSubmit={this.formSubmit}>
+                <h2 style={{color:'black'}}>{this.state.Questions[this.state.s].Question}</h2>
 
-          <ul>
-            <li>
-              <label>
-                <input
-                  type="radio"
-                  value="red"
-                  checked={this.state.color === "red"}
-                  onChange={this.onRadioChange}
-                />
-                <span>Red</span>
-              </label>
-            </li>
+                  <div   >
+                    <label  >
+                      <input
+                        type="radio"
+                        value={this.state.Questions[this.state.s].findAnswer[0]}
+                        checked={this.state.selectedOption ===this.state.Questions[this.state.s].findAnswer[0]}
+                        onChange={this.onValueChange}
+                         
+                      />
+                      {this.state.Questions[this.state.s].findAnswer[0]}
+                    </label>
+                  </div>
 
-            <li>
-              <label>
-                <input
-                  type="radio"
-                  value="green"
-                  checked={this.state.color === "green"}
-                  onChange={this.onRadioChange}
-                />
-                <span>Green</span>
-              </label>
-            </li>
 
-            <li>
-              <label>
-                <input
-                  type="radio"
-                  value="blue"
-                  checked={this.state.color === "blue"}
-                  onChange={this.onRadioChange}
-                />
-                <span>Blue</span>
-              </label>
-            </li>
+                  <div>
+                    <label>
+                      <input
+                        type="radio"
+                        value={this.state.Questions[this.state.s].findAnswer[1]}
+                        checked={this.state.selectedOption ===this.state.Questions[this.state.s].findAnswer[1]}
+                        onChange={this.onValueChange}
+                      />
+                      {this.state.Questions[this.state.s].findAnswer[1]}
+                    </label>
+                  </div>
 
-            <li>
-              <label>
-                <input
-                  type="radio"
-                  value="orange"
-                  checked={this.state.color === "orange"}
-                  onChange={this.onRadioChange}
-                />
-                <span>Ornage</span>
-              </label>
-            </li>
+                  <div style={{backgroundColor:this.state.setcolor[this.state.c3]}}>
+                    <label  style={{backgroundColor:this.state.setcolor}}>
+                      <input
+                        type="radio"
+                        value={this.state.Questions[this.state.s].findAnswer[2]}
+                        checked={this.state.selectedOption ===this.state.Questions[this.state.s].findAnswer[2]}
+                        onChange={this.onValueChange}
+                      />
+                      {this.state.Questions[this.state.s].findAnswer[2]}
+                    </label>
+                  </div>
 
-            <li>
-              <label>
-                <input
-                  type="radio"
-                  value="purple"
-                  checked={this.state.color === "purple"}
-                  onChange={this.onRadioChange}
-                />
-                <span>Purple</span>
-              </label>
-            </li>
-          </ul>
+                  <div  style={{backgroundColor:this.state.setcolor[this.state.c4]}}>
+                    <label>
+                      <input
+                        type="radio"
+                        value={this.state.Questions[this.state.s].findAnswer[3]}
+                        checked={this.state.selectedOption ===this.state.Questions[this.state.s].findAnswer[3]}
+                        onChange={this.onValueChange}
+                      />
+                      {this.state.Questions[this.state.s].findAnswer[3]}
+                    </label>
+                  </div>
 
-          <button type="submit">Choose Color</button>
-        </form>
-        </div>
-      ))}
-    </ul>
-  );
-     
+
+
+                  
+
+                </form>
+          </div>
+      
+    );
   }
 }
  

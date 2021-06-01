@@ -11,7 +11,18 @@
    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
      monospace;
  }
-
+ .app {
+  background-color:yellow;
+  width: 850px;
+  min-height: 200px;
+  height: min-content;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: space-evenly;
+  margin:10%;
+}
  h1,
  h2,
  p,
@@ -70,7 +81,7 @@
   flex-direction: row;
   justify-content: space-around;
   flex-wrap:wrap;
- 
+  margin-top:5%;
  
 }
 
@@ -102,7 +113,7 @@
   padding: 50px; 
   border-radius: 10%;
   transition: 0.5s;
-   
+   box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75); 
 }
 
 .box:hover{
