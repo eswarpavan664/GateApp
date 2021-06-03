@@ -88,7 +88,7 @@ class practice extends React.Component{
       this.setState({
         selectedOption:event.target.value,
         correctanswer:" ",
-        wronganswer:" ",
+      
         wronganswer:"Wrong Answer",
    
         })
