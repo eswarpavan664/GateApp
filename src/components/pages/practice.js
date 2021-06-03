@@ -15,6 +15,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button';
  
 import data from "../data";
+import Questions from "../data";
  
 
 class practice extends React.Component{
@@ -25,10 +26,9 @@ class practice extends React.Component{
       s:0,
         answer:0,
         setcolor:['red','green','none'],
-        c1:2,
-        c2:2,
-        c3:2,
-        c4:2,
+          correctanswer:" ",
+          wronganswer:" ",
+
       Questions :[
     
         {
@@ -59,6 +59,7 @@ class practice extends React.Component{
             rightanswer:"language for cross plateform"
         },
         
+        
     ]
    
     };
@@ -71,10 +72,13 @@ class practice extends React.Component{
    
      if(event.target.value===this.state.Questions[this.state.s].rightanswer)
      {
+       
           this.setState({
              selectedOption:event.target.value,
-              setcolor:'lawngreen'
-        
+            correctanswer:"Correct Answer",
+            wronganswer:" ",
+
+
              })
      }
      
@@ -83,7 +87,9 @@ class practice extends React.Component{
      else{
       this.setState({
         selectedOption:event.target.value,
-          setcolor:'white'
+        correctanswer:" ",
+        wronganswer:" ",
+        wronganswer:"Wrong Answer",
    
         })
      }
@@ -91,7 +97,24 @@ class practice extends React.Component{
       
   }
 
- 
+  gonextquestion=(event)=>{
+    event.preventDefault();
+      this.setState({
+         s:this.state.s+1,
+         correctanswer:" ",
+         wronganswer:" ",
+         
+      })
+  }
+
+  goprequestion=(event)=>{
+    event.preventDefault();
+    this.setState({
+       s:this.state.s-1,
+       correctanswer:" ",
+       wronganswer:" ",
+    })
+}
 
   checkanswer=(props)={
 
@@ -105,14 +128,16 @@ class practice extends React.Component{
   }
 
   render() {
+    const len = this.state.Questions.length;
     return (
 
-          <div style={{margin:'20%'}}>
-          <form onSubmit={this.formSubmit}>
-                <h2 style={{color:'black'}}>{this.state.Questions[this.state.s].Question}</h2>
+          <div style={{margin:'20%',backgroundColor:'pink'}}>
+          <form  className="questionbox">
 
-                  <div   >
-                    <label  >
+                <h2 style={{color:'black',textAlign:'center'}}>{this.state.Questions[this.state.s].Question}</h2>
+
+                  <div style={{marginLeft:'10%',fontSize:20}}>
+                    <label>
                       <input
                         type="radio"
                         value={this.state.Questions[this.state.s].findAnswer[0]}
@@ -125,7 +150,7 @@ class practice extends React.Component{
                   </div>
 
 
-                  <div>
+                  <div style={{marginLeft:'10%',fontSize:20}}>
                     <label>
                       <input
                         type="radio"
@@ -137,7 +162,7 @@ class practice extends React.Component{
                     </label>
                   </div>
 
-                  <div style={{backgroundColor:this.state.setcolor[this.state.c3]}}>
+                  <div style={{marginLeft:'10%',fontSize:20}}>
                     <label  style={{backgroundColor:this.state.setcolor}}>
                       <input
                         type="radio"
@@ -149,7 +174,7 @@ class practice extends React.Component{
                     </label>
                   </div>
 
-                  <div  style={{backgroundColor:this.state.setcolor[this.state.c4]}}>
+                  <div  style={{marginLeft:'10%',fontSize:20}}>
                     <label>
                       <input
                         type="radio"
@@ -161,11 +186,25 @@ class practice extends React.Component{
                     </label>
                   </div>
 
+                    <div> 
+                        <h2 style={{textAlign:'center',color:'lightgreen'}}>{this.state.correctanswer}</h2>
+                        <h2 style={{textAlign:'center',color:'red'}}>{this.state.wronganswer}</h2>
+                    </div>
 
 
-                  
 
+                  <div className="optin">
+                      {this.state.s>=1?  <button className="prequestion"  onClick={this.goprequestion}>  <h2  >Pre</h2></button> :null}
+                     
+                        {this.state.s<len-1?<button  className="nextquestion"  onClick={this.gonextquestion}>  <h2 >Next</h2></button>:null} 
+                  </div>
+
+                
                 </form>
+
+                
+
+
           </div>
       
     );

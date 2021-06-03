@@ -4,13 +4,13 @@ import "firebase/firestore";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCN_qPA1L2qIDqcE-X2TM4x9PIhQ9aVDkQ",
-  authDomain: "gateapp-40996.firebaseapp.com",
-  projectId: "gateapp-40996",
-  storageBucket: "gateapp-40996.appspot.com",
-  messagingSenderId: "53840716298",
-  appId: "1:53840716298:web:f1709d887a2df993ab75f3",
-  measurementId: "G-3QC0NX5QKN"
+  apiKey: "AIzaSyCIDGyFv0htAY29TCA6d248AvWRMUGWDNw",
+  authDomain: "gate-app-b241e.firebaseapp.com",
+  projectId: "gate-app-b241e",
+  storageBucket: "gate-app-b241e.appspot.com",
+  messagingSenderId: "812366319617",
+  appId: "1:812366319617:web:24024fa2fe9fb379727000",
+  measurementId: "G-Y5S4QPH02J"
 };
 
 firebase.initializeApp(firebaseConfig);
