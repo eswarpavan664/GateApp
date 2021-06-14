@@ -16,11 +16,21 @@ class   Ecepage extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{backgroundColor:'#5DADE2',paddingTop:'10%',paddingBottom:'20%'  }}>
        
         <div  className="container">
              <div  className="box">
-        <NavLink to="/practice" style={{textDecoration:'none'}}>
+        <NavLink  to={{
+
+        pathname:"/practice",
+        pagename:{
+          name:"ECE"
+        }
+        }} 
+        
+        
+        
+        style={{textDecoration:'none'}}>
          <img src={image1} className="image"/>
                 <h2 style={{textAlign:'center',color:'black',marginTop:'15%',fontWeight:'bold'}}>Practics</h2>
           </NavLink>
@@ -36,11 +46,7 @@ class   Ecepage extends Component {
         </div>
           <div>
             
-          <div >
-            <Route path="/practice" component={practice}/>
-            <Route path="/test" component={test}/>
-            
-          </div>
+          
         </div>
   </div>
     );

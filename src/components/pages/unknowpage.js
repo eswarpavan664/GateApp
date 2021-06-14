@@ -12,12 +12,12 @@ import image2 from '../../images/idea.png';
 import image3 from '../../images/drone.png';
 import Ecepage from "../pages/Ecepage";
 import Eeepage from "../pages/Eeepage";
-import Instumentationpage from "./Instrumentationpage";
+import Instumentationpage from "./Instrumentation";
 class   unknowpage extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{backgroundColor:'#5DADE2',paddingTop:'10%',paddingBottom:'20%'  }}>
        
         <div  className="container">
              <div  className="box">

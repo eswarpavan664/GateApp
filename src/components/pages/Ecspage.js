@@ -17,7 +17,7 @@ class   Ecspage extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{backgroundColor:'#5DADE2',paddingTop:'10%',paddingBottom:'20%'  }}>
        
         <div   className="container">
              <div  className="box">

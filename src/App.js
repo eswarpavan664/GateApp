@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
@@ -17,7 +18,7 @@ import Ecspage from "./components/pages/unknowpage";
 import unknowpage from "./components/pages/unknowpage";
 import Ecepage from "./components/pages/Ecepage";
 import Eeepage from "./components/pages/Eeepage" ;
-import Instrumentationpage from "./components/pages/Instrumentationpage"; 
+import Instrumentation from "./components/pages/Instrumentation"; 
 import practice from "./components/pages/practice";
 import test from "./components/pages/test";
 import Image3 from './images/logo.png'
@@ -37,8 +38,8 @@ function App() {
              <Route path="/unknowpage" component={unknowpage}/>
              <Route path="/Ecepage" component={Ecepage}/>
              <Route path="/Eeepage" component={Eeepage}/>
-             <Route path="/Instrumentationpage" component={Instrumentationpage}/>
-              <Route path="/practice" component={practice}/>
+             <Route path="/Instrumentation" component={Instrumentation}/>
+              <Route path="/practice" component={practice} />
              <Route path="/test" component={test}/>
 
         </Switch>

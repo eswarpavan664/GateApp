@@ -29,16 +29,14 @@ function Home() {
     <img src="https://picsum.photos/800/304/?random" alt="5" />   ];
   return (
           
-          <section style={{backgroundColor:'#5DADE2'  }}>     
+          <section style={{backgroundColor:'#5DADE2',paddingTop:'10%',paddingBottom:'20%'  }}>     
 
 
         
 
             <div style={{marginTop:'4%'}}>
              
-            </div>
-            <Carousel slides={slides} autoplay={true} interval={3000}/>
-           
+            </div> 
 
           
 

@@ -73,14 +73,17 @@
 
 .box {
   width: 300px;
-  background:#F4D03F;
+  
   margin: 20px;
   box-sizing: border-box;
   font-size: 50px;
   padding: 50px; 
-  border-radius: 10%;
+  
   transition: 0.5s;
-   box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75); 
+  border-radius: 50px;
+  background: linear-gradient(145deg, #7ee600, #96ff00);
+  box-shadow:  16px 16px 0px #386600,
+               -16px -16px 0px #e0ff00;
 }
 
 .box:hover{
@@ -164,6 +167,11 @@ button svg {
    background-color: #0099FF;
    box-shadow: 5px 5px 5px 5px green;
    border-radius: 15px;
+  width: 55%;
+
+  margin-left: 22%;
+  margin-right: 25%;
+   
 }
 
 .prequestion{

@@ -17,9 +17,15 @@ import Button from '@material-ui/core/Button';
 import data from "../data";
 import Questions from "../data";
  
+const practice=(props)=>{
+  
+  
+  return(
+       <File names={props.location.pagename.name} />
+  )
+}
 
-class practice extends React.Component{
-
+class File extends React.Component{
   constructor(props){
     super();
     this.state = {
@@ -29,6 +35,7 @@ class practice extends React.Component{
           correctanswer:" ",
           wronganswer:" ",
 
+          parameter:"",
       Questions :[
     
         {
@@ -64,10 +71,10 @@ class practice extends React.Component{
    
     };
     this.onValueChange = this.onValueChange.bind(this);
-   
+    
     
   }
-
+  
   onValueChange(event) {
    
      if(event.target.value===this.state.Questions[this.state.s].rightanswer)
@@ -116,24 +123,20 @@ class practice extends React.Component{
     })
 }
 
-  checkanswer=(props)={
-
-     
-
-
-
-  }
-  nextquestion =()=>{
-    
-  }
+   
 
   render() {
     const len = this.state.Questions.length;
+
+    const para = this.props.names;
+    
     return (
 
-          <div style={{margin:'20%',backgroundColor:'pink'}}>
+          <div style={{backgroundColor:'white',marginBottom:'5%' }}>
+          <h1 style={{textAlign:'center',marginBottom:'10%',marginTop:'4%'}}>{para}</h1>
+          
           <form  className="questionbox">
-
+ 
                 <h2 style={{color:'black',textAlign:'center'}}>{this.state.Questions[this.state.s].Question}</h2>
 
                   <div style={{marginLeft:'10%',fontSize:20}}>
@@ -210,5 +213,6 @@ class practice extends React.Component{
     );
   }
 }
+ 
  
 export default  practice;

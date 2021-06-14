@@ -12,13 +12,13 @@ import image2 from '../../images/idea.png';
 import image3 from '../../images/drone.png';
 import Ecepage from "./Ecepage";
 import Eeepage from "./Eeepage";
-import Instumentationpage from "./Instrumentationpage";
+import Instumentationpage from "./Instrumentation";
 class  Gatepage extends Component {
 
   render() {
     return (
-      <div>
-       
+      <div  style={{backgroundColor:'#5DADE2',paddingTop:'10%',paddingBottom:'20%'  }}>
+        
         <div  className="container">
              <div className="box">
         <NavLink to="/Ecepage" style={{textDecoration:'none'}}>

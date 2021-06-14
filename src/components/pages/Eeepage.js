@@ -12,35 +12,46 @@ import image2 from '../../images/idea.png';
 
 import practice from "./practice";
 import test from "./test";
-class   Eeepage extends Component {
+class   Eeepage extends Component{state = { data : "eee" }
 
   render() {
     return (
-      <div>
+      <div style={{backgroundColor:'#5DADE2',paddingTop:'10%',paddingBottom:'20%'  }}>
+      <set name={this.state.data}/>
        
         <div  className="container">
+
              <div className="box">
-        <NavLink to="/practice" style={{textDecoration:'none'}}>
-         <img src={image1} className="image"/>
-                <h2 style={{textAlign:'center',color:'black',marginTop:'15%',fontWeight:'bold'}}>Practics</h2>
-          </NavLink>
+
+                 <NavLink to={{
+
+                      pathname:"/practice",
+                       pagename:{
+                         name:"EEE"
+                       }
+                 }} 
+                 
+                 
+                 
+                 style={{textDecoration:'none'}}>
+                    <img src={image1} className="image"/>
+                    <h2 style={{textAlign:'center',color:'black',marginTop:'15%',fontWeight:'bold'}}>Practics</h2>
+                 </NavLink>
+
             </div> 
+
              <div className="box">
                  <NavLink to="/test" style={{textDecoration:'none'}}>
-                 <img src={image2} className="image"/>
-            
-                <h2 style={{textAlign:'center',color:'black',marginTop:'15%',fontWeight:'bold'}}>Test</h2>
-          </NavLink>
-       </div> 
+                    <img src={image2} className="image"/>
+                
+                    <h2 style={{textAlign:'center',color:'black',marginTop:'15%',fontWeight:'bold'}}>Test</h2>
+                  </NavLink>
+           </div> 
              
         </div>
           <div>
             
-          <div >
-            <Route path="/practice" component={practice}/>
-            <Route path="/test" component={test}/>
-            
-          </div>
+          
         </div>
   </div>
     );

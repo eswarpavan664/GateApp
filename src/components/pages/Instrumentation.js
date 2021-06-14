@@ -12,15 +12,27 @@ import image2 from '../../images/idea.png';
 
 import practice from "./practice";
 import test from "./test";
-class   Instrumentationpage extends Component{
+class   Instrumentation extends Component{
 
   render() {
     return (
-      <div>
+      <div style={{backgroundColor:'#5DADE2',paddingTop:'10%',paddingBottom:'20%'  }}>
        
         <div   className="container">
              <div  className="box">
-                <NavLink to="/practice" style={{textDecoration:'none'}}>
+                <NavLink  to={{
+
+                    pathname:"/practice",
+                    pagename:{
+                      name:"Instrumentation"
+                    }
+                    }} 
+                
+                
+                
+                
+                
+                style={{textDecoration:'none'}}>
                   <img src={image1} className="image"/>
                 <h2 style={{textAlign:'center',color:'black',marginTop:'15%',fontWeight:'bold'}}>Practice</h2>
                </NavLink>
@@ -37,15 +49,11 @@ class   Instrumentationpage extends Component{
         </div>
           <div>
             
-          <div >
-            <Route path="/practice" component={practice}/>
-            <Route path="/test" component={test}/>
-            
-          </div>
+           
         </div>
   </div>
     );
   }
 }
 
-export default  Instrumentationpage;
+export default  Instrumentation;
