@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route,NavLink ,Redirect} from "react-router-dom";
+import {NavLink } from "react-router-dom";
 import '../../index.css';
 import image1 from '../../images/cpu.png';
 import image2 from '../../images/idea.png';
