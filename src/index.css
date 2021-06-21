@@ -9,6 +9,10 @@
    padding: 0;
  }
 
+ .iframes{
+  width:44%;
+  height: 100%;
+ }
  ul.header li a {
    color: #FFF;
    font-weight: bold;
@@ -34,6 +38,29 @@
  .active {
    background-color: #0099FF;
  }
+
+
+
+ .containers {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 62.5%; /* 8:5 Aspect Ratio */
+  
+}
+
+ 
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 
  .image {
    width: 70%;

@@ -3,19 +3,20 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch ,Redirect} from "react-router-dom";
 
  
 import "./App.css";
 // import NavBar from "./components/NavBar";
  
+import {Component} from 'react'; 
  
 import Home from "./components/pages/Home"; 
 import About from "./components/pages/About"; 
 import Contact from "./components/pages/Contact"; 
 import Gatepage from "./components/pages/Gatepage"; 
-import Ecspage from "./components/pages/unknowpage";
-import unknowpage from "./components/pages/unknowpage";
+import Esepage from "./components/pages/Esepage";
+import Isropage from "./components/pages/Isropage";
 import Ecepage from "./components/pages/Ecepage";
 import Eeepage from "./components/pages/Eeepage" ;
 import Instrumentation from "./components/pages/Instrumentation"; 
@@ -23,30 +24,47 @@ import practice from "./components/pages/practice";
 import test from "./components/pages/test";
 import Image3 from './images/logo.png'
 import NavBar from "./components/NavBar";
-function App() {
-  return (
-     <>
-    <Router>
-         <NavBar/>
-         
-        <Switch>
-          <Route path="/Home" component={Home}/>
-            <Route path="/About" component={About}/>
+
+
+class App extends Component {
+  
+
+  render() {
+    return (
+      <div>
+        <Router>
+          <NavBar/>
+          <div>
+            
+            
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={() => {
+                    return (
+                      
+                      <Redirect to="/Home" /> 
+                       
+                    )
+                }}
+              />
+               <Route exact path="/home" component={Home} />
+               <Route path="/About" component={About}/>
             <Route path="/contact" component={Contact}/>
              <Route path="/Gatepage" component={Gatepage}/>
-             <Route path="/Ecspage" component={Ecspage}/>
-             <Route path="/unknowpage" component={unknowpage}/>
+             <Route path="/Esepage" component={Esepage}/>
+             <Route path="/Isropage" component={Isropage}/>
              <Route path="/Ecepage" component={Ecepage}/>
              <Route path="/Eeepage" component={Eeepage}/>
              <Route path="/Instrumentation" component={Instrumentation}/>
               <Route path="/practice" component={practice} />
              <Route path="/test" component={test}/>
-
-        </Switch>
-       
-     </Router>
-
-     <section>
+               
+            </Switch>
+          </div>
+        </Router>
+        <section>
 
          <footer class="footer-distributed">
 
@@ -96,8 +114,9 @@ function App() {
               </div>
 	    	</footer>
      </section>
-     </>
-  )
+      </div>
+    );
+  }
 }
 
-export default App
+export default App;

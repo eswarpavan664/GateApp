@@ -1,3 +1,6 @@
+/* eslint-disable no-self-compare */
+/* eslint-disable no-lone-blocks */
+/* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable react/no-direct-mutation-state */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-unused-vars */
@@ -14,66 +17,102 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button';
  
-import data from "../data";
-import Questions from "../data";
  
+import {GateEceQuestions,GateEeeQuestions,GateInQuestions,EseEceQuestions,EseEeeQuestions,IsroEeeQuestions,IsroEceQuestions} from "../data";
+import {useLocation} from "react-router-dom" 
 const practice=(props)=>{
   
+  let location = useLocation();
+     
+  const Cource=location.state.cource;
+  const Branch=location.state.branch;
   
   return(
-       <File names={props.location.pagename.name} />
+       <File Setcource={Cource} Setbranch={Branch}/>
   )
 }
 
 class File extends React.Component{
   constructor(props){
     super();
-    this.state = {
-      s:0,
-        answer:0,
-        setcolor:['red','green','none'],
-          correctanswer:" ",
-          wronganswer:" ",
+     if(props.Setcource==="GATE"){
+       if(props.Setbranch==="ECE"){
 
-          parameter:"",
-      Questions :[
-    
-        {
-             
-            Question:"what is your name?",
-            findAnswer:["pavan","eswar","pavaneswar","unknown"],
-            rightanswer:"pavaneswar"
-        },
-    
-        {
-             
-            Question:"what your age?",
-            findAnswer:["above 18","below 18","above 30","above 50"],
-            rightanswer:"below 18"
-        },
-    
-        {
-         
-            Question:"what languages do u know",
-            findAnswer:["c","cpp","react","php"],
-            rightanswer:"react"
-        },
-    
-        {
+                this.state = {
+                  s:0,
+                    answer:0,
+                    setcolor:['red','green','none'],
+                      correctanswer:" ",
+                      wronganswer:" ",
+                    calculater:" ",
+                    Questions:GateEceQuestions
+                    
+                }
+        }
+       else if(props.Setbranch==="EEE")
+       {
+                this.state = {
+                  s:0,
+                    answer:0,
+                    setcolor:['red','green','none'],
+                      correctanswer:" ",
+                      wronganswer:" ",
+                    calculater:" ",
+                    Questions:GateEeeQuestions
+                    
+                }
+       } 
+       else{
           
-            Question:"what is react",
-            findAnswer:["language for web","language for android","language for ios","language for cross plateform"],
-            rightanswer:"language for cross plateform"
-        },
-        
-        
-    ]
-   
-    };
+        this.state = {
+          s:0,
+            answer:0,
+            setcolor:['red','green','none'],
+              correctanswer:" ",
+              wronganswer:" ",
+            calculater:" ",
+            Questions:GateInQuestions
+            
+        }
+
+       } 
+     }
+
+
+     if(props.Setcource==="ESE"){
+            if(props.Setbranch==="ECE"){
+
+                this.state = {
+                  s:0,
+                    answer:0,
+                    setcolor:['red','green','none'],
+                      correctanswer:" ",
+                      wronganswer:" ",
+                    calculater:" ",
+                    Questions:EseEceQuestions    
+                }
+              }
+              else if(props.Setbranch==="EEE")
+              {
+                this.state = {
+                  s:0,
+                    answer:0,
+                    setcolor:['red','green','none'],
+                      correctanswer:" ",
+                      wronganswer:" ",
+                    calculater:" ",
+                    Questions:EseEeeQuestions
+                }   
+              } 
+         }
+     
+
     this.onValueChange = this.onValueChange.bind(this);
     
-    
+  
   }
+   
+   
   
   onValueChange(event) {
    
@@ -123,18 +162,25 @@ class File extends React.Component{
     })
 }
 
-   
+discal=(event)=>{
+    this.setState({
+      calculater:"https://www.tcsion.com/OnlineAssessment/ScientificCalculator/Calculator.html"
+    })
+}  
 
   render() {
     const len = this.state.Questions.length;
 
-    const para = this.props.names;
+     
     
     return (
 
           <div style={{backgroundColor:'white',marginBottom:'5%' }}>
-          <h1 style={{textAlign:'center',marginBottom:'10%',marginTop:'4%'}}>{para}</h1>
-          
+        
+          <h1 class="text-center" style={{marginTop:'2%',fontFamily:'-moz-initial',color:'green',fontWeight:'bold',fontSize:55}}>{this.props.Setcource} {this.props.Setbranch}</h1>
+          <h1 class="text-center" style={{marginBottom:'5%',fontFamily:'-moz-initial',color:'green',fontWeight:'bold'}}>Questions</h1>
+             
+            
           <form  className="questionbox">
  
                 <h2 style={{color:'black',textAlign:'center'}}>{this.state.Questions[this.state.s].Question}</h2>
@@ -204,9 +250,12 @@ class File extends React.Component{
 
                 
                 </form>
-
+                  
+                  <Button className="displaycalculater" onClick={this.discal}>Calculater</Button>
                 
-
+                <div class="containers"> 
+                        <iframe class="responsive-iframe" src={this.state.calculater}></iframe>
+                </div>
 
           </div>
       

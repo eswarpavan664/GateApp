@@ -1,9 +1,10 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import Gatepage from "./Gatepage"; 
-import Ecspage from "./unknowpage";
-import unknowpage from "./unknowpage";
+import Esepage from "./Esepage";
+import Isropage from "./Isropage";
 import '../../index.css';
 import {
   Route,
@@ -21,64 +22,41 @@ import {Carousel} from '3d-react-carousal';
  
 
 function Home() {
-  let slides = [
-    <img  src="https://picsum.photos/800/300/?random" alt="1" />,
-    <img  src="https://picsum.photos/800/301/?random" alt="2" />  ,
-    <img  src="https://picsum.photos/800/302/?random" alt="3" />  ,
-    <img  src="https://picsum.photos/800/303/?random" alt="4" />  ,
-    <img src="https://picsum.photos/800/304/?random" alt="5" />   ];
+   
   return (
           
           <section style={{backgroundColor:'#5DADE2',paddingTop:'10%',paddingBottom:'20%'  }}>     
 
+              <div className="container">
+                    <div  className="box">
 
-        
-
-            <div style={{marginTop:'4%'}}>
-             
-            </div> 
-
-          
-
+                          
+                          <NavLink to="/Gatepage" style={{textDecoration:'none'}}>
+                                    <img src={Image1} className="image"/>
+                                <h2 style={{textAlign:'center',color:'black',marginTop:'15%',fontWeight:'bold'}}>GATE</h2>
+                        </NavLink>
+                    </div>
 
 
 
-          <div className="container">
-                <div  className="box">
-
-                       
-                      <NavLink to="/Gatepage" style={{textDecoration:'none'}}>
-                                 <img src={Image1} className="image"/>
-                            <h2 style={{textAlign:'center',color:'black',marginTop:'15%',fontWeight:'bold'}}>GATE</h2>
-                     </NavLink>
-                </div>
-
+                        <div className="box">
+                            <NavLink to="/Esepage" style={{textDecoration:'none'}}>
+                                <img src={Image3} className="image"/>
+                        
+                                  <h2 style={{textAlign:'center',color:'black',marginTop:'15%',fontWeight:'bold'}}>ESE</h2>
+                          </NavLink>
+                        </div> 
 
 
                     <div className="box">
-                        <NavLink to="/Ecspage" style={{textDecoration:'none'}}>
-                             <img src={Image3} className="image"/>
+                          <NavLink to="/Isropage" style={{textDecoration:'none'}}>
+                              <img src={Image2} className="image"/>
                     
-                               <h2 style={{textAlign:'center',color:'black',marginTop:'15%',fontWeight:'bold'}}>ESE</h2>
-                       </NavLink>
-                     </div> 
-
-
-                <div className="box">
-                       <NavLink to="/unknowpage" style={{textDecoration:'none'}}>
-                           <img src={Image2} className="image"/>
-                
-                             <h2 style={{textAlign:'center',color:'black',marginTop:'15%',fontWeight:'bold' }}> ISRO</h2> 
-                       </NavLink>
-                </div> 
-                 <div>
-            <Route path="/Gatepage" component={Gatepage}/>
-            <Route path="/Ecspage" component={Ecspage}/>
-            <Route path="/unknowpage" component={unknowpage}/>
-          </div>
-            
-        </div>
-        </section>
+                                <h2 style={{textAlign:'center',color:'black',marginTop:'15%',fontWeight:'bold' }}> ISRO</h2> 
+                          </NavLink>
+                    </div> 
+              </div>
+          </section>
 
       
   )

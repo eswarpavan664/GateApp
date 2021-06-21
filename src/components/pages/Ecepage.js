@@ -3,30 +3,39 @@
 import React, { Component } from "react";
 import '../../index.css';
 import {
-  Route,
+ 
   NavLink,
-  HashRouter
+  useLocation
 } from "react-router-dom";
 import image1 from '../../images/cpu.png';
 import image2 from '../../images/idea.png';
 
 import practice from "./practice";
 import test from "./test";
-class   Ecepage extends Component {
+function Ecepage(props) {
 
-  render() {
+  let location = useLocation();
+     
+  const Cource=location.state.cource;
+  const Branch=location.state.branch;
+  const SETQUESTION = {
+    pathname: "/practice",
+    key: '12',  
+     state:{
+         cource:Cource,
+         branch:Branch
+     }
+  };
+   
     return (
       <div style={{backgroundColor:'#5DADE2',paddingTop:'10%',paddingBottom:'20%'  }}>
        
+       <h1>{Cource}</h1>
+            <h1>{Branch}</h1>
+
         <div  className="container">
              <div  className="box">
-        <NavLink  to={{
-
-        pathname:"/practice",
-        pagename:{
-          name:"ECE"
-        }
-        }} 
+        <NavLink  to={SETQUESTION} 
         
         
         
@@ -50,7 +59,7 @@ class   Ecepage extends Component {
         </div>
   </div>
     );
-  }
+  
 }
 
 export default   Ecepage;
