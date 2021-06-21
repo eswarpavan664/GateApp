@@ -45,8 +45,10 @@ class File extends React.Component{
                       correctanswer:" ",
                       wronganswer:" ",
                     calculater:" ",
-                    Questions:GateEceQuestions
-                    
+                    Questions:GateEceQuestions,
+                    isHidden: true,
+                    text:" show",
+                    text2:"close"
                 }
         }
        else if(props.Setbranch==="EEE")
@@ -58,8 +60,9 @@ class File extends React.Component{
                       correctanswer:" ",
                       wronganswer:" ",
                     calculater:" ",
-                    Questions:GateEeeQuestions
-                    
+                    Questions:GateEeeQuestions,
+                    isHidden: true,
+                    text:" show"
                 }
        } 
        else{
@@ -71,8 +74,9 @@ class File extends React.Component{
               correctanswer:" ",
               wronganswer:" ",
             calculater:" ",
-            Questions:GateInQuestions
-            
+            Questions:GateInQuestions,
+            isHidden: true,
+            text:" show"
         }
 
        } 
@@ -89,7 +93,9 @@ class File extends React.Component{
                       correctanswer:" ",
                       wronganswer:" ",
                     calculater:" ",
-                    Questions:EseEceQuestions    
+                    Questions:EseEceQuestions,
+                    isHidden: true,
+                    text:" show"  
                 }
               }
               else if(props.Setbranch==="EEE")
@@ -101,7 +107,9 @@ class File extends React.Component{
                       correctanswer:" ",
                       wronganswer:" ",
                     calculater:" ",
-                    Questions:EseEeeQuestions
+                    Questions:EseEeeQuestions,
+                    isHidden: true,
+                    text:" show"
                 }   
               } 
          }
@@ -116,7 +124,9 @@ class File extends React.Component{
                     correctanswer:" ",
                     wronganswer:" ",
                   calculater:" ",
-                  Questions:IsroEceQuestions    
+                  Questions:IsroEceQuestions,
+                  isHidden: true,
+                  text:" show"    
               }
             }
             else if(props.Setbranch==="EEE")
@@ -128,7 +138,9 @@ class File extends React.Component{
                     correctanswer:" ",
                     wronganswer:" ",
                   calculater:" ",
-                  Questions:IsroEeeQuestions
+                  Questions:IsroEeeQuestions,
+                  isHidden: true,
+                  text:" show"
               }   
             } 
        }
@@ -194,7 +206,12 @@ discal=(event)=>{
       calculater:"https://www.tcsion.com/OnlineAssessment/ScientificCalculator/Calculator.html"
     })
 }  
-
+toggleHidden () {
+  this.setState({
+    isHidden: !this.state.isHidden
+     
+  })
+}
   render() {
     const len = this.state.Questions.length;
 
@@ -278,17 +295,26 @@ discal=(event)=>{
                 
                 </form>
                   
-                  <Button className="displaycalculater" onClick={this.discal}>Calculater</Button>
-                
-                <div class="containers"> 
-                        <iframe class="responsive-iframe" src={this.state.calculater}></iframe>
+                 
+
+
+
+                <div>
+        <button  style={{width:100,marginLeft:'35%'}} onClick={this.toggleHidden.bind(this)} >
+           Calculater
+        </button>
+        {!this.state.isHidden ?
+          <div class="resp-container">
+                    <iframe class="resp-iframe" src="https://www.tcsion.com/OnlineAssessment/ScientificCalculator/Calculator.html"  ></iframe>
                 </div>
+:null
+        }
+      </div>
 
           </div>
       
     );
   }
 }
- 
- 
+  
 export default  practice;

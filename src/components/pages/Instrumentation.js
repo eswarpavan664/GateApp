@@ -28,8 +28,7 @@ function Instrumentation(){
   };
     return (
       <div style={{backgroundColor:'#5DADE2',paddingTop:'10%',paddingBottom:'20%'  }}>
-       <h1>{Cource}</h1>
-            <h1>{Branch}</h1>
+         <h1 class="text-center" style={{marginTop:'2%',fontFamily:'-moz-initial',color:'green',fontWeight:'bold',fontSize:55}}>{Cource} {Branch}</h1>
        
         <div   className="container">
              <div  className="box">
