@@ -105,6 +105,33 @@ class File extends React.Component{
                 }   
               } 
          }
+
+         if(props.Setcource==="ISRO"){
+          if(props.Setbranch==="ECE"){
+
+              this.state = {
+                s:0,
+                  answer:0,
+                  setcolor:['red','green','none'],
+                    correctanswer:" ",
+                    wronganswer:" ",
+                  calculater:" ",
+                  Questions:IsroEceQuestions    
+              }
+            }
+            else if(props.Setbranch==="EEE")
+            {
+              this.state = {
+                s:0,
+                  answer:0,
+                  setcolor:['red','green','none'],
+                    correctanswer:" ",
+                    wronganswer:" ",
+                  calculater:" ",
+                  Questions:IsroEeeQuestions
+              }   
+            } 
+       }
      
 
     this.onValueChange = this.onValueChange.bind(this);

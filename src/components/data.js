@@ -200,7 +200,7 @@ let  IsroEeeQuestions =[
    
     {
              
-        Question:"what is your name?",
+        Question:"what is the ISRO full form(EEE)?",
         findAnswer:["pavan","eswar","pavaneswar","unknown"],
         rightanswer:"pavaneswar"
     },
@@ -239,7 +239,7 @@ let  IsroEceQuestions =[
    
     {
              
-        Question:"what is your name?",
+        Question:"what is the ISRO full form(ECE)?",
         findAnswer:["pavan","eswar","pavaneswar","unknown"],
         rightanswer:"pavaneswar"
     },
