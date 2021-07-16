@@ -164,11 +164,13 @@
   font-size: 50px;
   padding: 50px; 
   
-  transition: 0.5s;
-  border-radius: 50px;
-  background: linear-gradient(145deg, #7ee600, #96ff00);
-  box-shadow:  16px 16px 0px #386600,
-               -16px -16px 0px #e0ff00;
+  background: rgba( 0, 0, 0, 0.30 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 16.5px );
+-webkit-backdrop-filter: blur( 16.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+  
 }
 
 .box:hover{
