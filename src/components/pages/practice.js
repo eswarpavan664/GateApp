@@ -16,7 +16,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button';
- 
+import Axios from "axios";
  
 import {GateEceQuestions,GateEeeQuestions,GateInQuestions,EseEceQuestions,EseEeeQuestions,IsroEeeQuestions,IsroEceQuestions} from "../data";
 import {useLocation} from "react-router-dom" 
@@ -48,7 +48,7 @@ class File extends React.Component{
                     Questions:GateEceQuestions,
                     isHidden: true,
                     text:" show",
-                    text2:"close"
+                    text2:"close",posts : [],ps:[]
                 }
         }
        else if(props.Setbranch==="EEE")
@@ -146,13 +146,25 @@ class File extends React.Component{
        }
      
 
-    this.onValueChange = this.onValueChange.bind(this);
-    
+ 
+  
   
   }
    
    
-  
+  componentDidMount() {
+    Axios.get("http://localhost:3001/eee").then((response) => {
+      this.setState({
+        posts:response.data
+      })
+    });
+
+    Axios.get("http://localhost:3001/ece").then((response) => {
+      this.setState({
+        ps:response.data
+      })
+    });
+  }
   onValueChange(event) {
    
      if(event.target.value===this.state.Questions[this.state.s].rightanswer)
@@ -216,6 +228,10 @@ toggleHidden () {
     const len = this.state.Questions.length;
 
      
+
+    console.log(this.state.posts)
+    
+    console.log(this.state.ps)
     
     return (
 
@@ -310,6 +326,9 @@ toggleHidden () {
 :null
         }
       </div>
+
+    
+
 
           </div>
       

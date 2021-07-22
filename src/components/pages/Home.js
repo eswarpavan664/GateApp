@@ -1,3 +1,4 @@
+/* eslint-disable react/style-prop-object */
 /* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable jsx-a11y/alt-text */
@@ -18,6 +19,7 @@ import Image2 from '../../images/project.png';
 import Image3 from '../../images/worker.png';
 import foot from "../foot";
 import backimg from '../../images/Untitled design.png'
+
  
 import { Carousel } from 'antd';
  
@@ -32,19 +34,26 @@ const contentStyle = {
 function Home() {
    
   return (
-          
+          <body> 
           <section style={{backgroundColor:'#5DADE2',paddingTop:'10%',paddingBottom:'20%'  }}>     
-     
-    
 
-
-
-
-
-
-
-
-
+            <div>
+            <div class="waveWrapper waveAnimation">
+                <div class="waveWrapperInner bgTop">
+                 
+                  <div class="wave waveTop" style={{backgroundImage:`url('http://front-end-noobs.com/jecko/img/wave-top.png')`}}></div>
+                </div>
+                <div class="waveWrapperInner bgMiddle">
+                  <div class="wave waveMiddle" style={{backgroundImage:`url('http://front-end-noobs.com/jecko/img/wave-mid.png')`}}></div>
+                </div>
+                <div class="waveWrapperInner bgBottom">
+                  <div class="wave waveBottom" style={{backgroundImage:`url('http://front-end-noobs.com/jecko/img/wave-bot.png')`}}></div>
+                </div>
+          </div>
+            </div>
+  
+            </section>
+            <article> 
 
 
 
@@ -83,8 +92,8 @@ function Home() {
    
               </div>
 
-          </section>
-
+          </article>
+</body>
       
   )
 }
