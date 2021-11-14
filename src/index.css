@@ -1,3 +1,4 @@
+  
  ul.header li {
    display: inline;
    list-style-type: none;
@@ -83,12 +84,12 @@
  
 }
 .questionbox{
-  background-color: #0099FF;
-  box-shadow: 5px 5px 5px 5px green;
+  
+   
   border-radius: 15px;
  width: 55%;
 
- margin-left: 22%;
+  
  margin-right: 25%;
   
 }
@@ -163,6 +164,30 @@
   margin-left: 15%;
   
 }
+
+.questionbox{
+   background-color:pink;
+   width:80%;
+   margin-left:10%;
+   margin-right:5%;
+}
+
+
+#intro{
+  margin-top:1%;
+  width:90%;
+  height:800px;
+
+  margin-left: 5%;
+   
+  
+  border-radius: 25px;
+  background-image: url('../src//images/2581479.jpg');
+  background-repeat: no-repeat;
+  background-size: 1400px 800px;
+ 
+}
+
 
 .box {
   width: 250px;

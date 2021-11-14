@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-self-compare */
 /* eslint-disable no-lone-blocks */
 /* eslint-disable jsx-a11y/iframe-has-title */
@@ -7,17 +8,9 @@
 /* eslint-disable no-undef */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, {useState,useEffect,Fragment} from "react";
-import firebase from "../firebase";
-import { makeStyles } from '@material-ui/core/styles';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormLabel from '@material-ui/core/FormLabel';
-import Button from '@material-ui/core/Button';
-import Axios from "axios";
  
+import Axios from "axios";
+import ima from '../../images/What.jpeg' 
 import {GateEceQuestions,GateEeeQuestions,GateInQuestions,EseEceQuestions,EseEeeQuestions,IsroEeeQuestions,IsroEceQuestions} from "../data";
 import {useLocation} from "react-router-dom" 
 const practice=(props)=>{
@@ -236,104 +229,135 @@ toggleHidden () {
     return (
 
           <div style={{backgroundColor:'white',marginBottom:'5%' }}>
-        
+           
           <h1 class="text-center" style={{marginTop:'2%',fontFamily:'-moz-initial',color:'green',fontWeight:'bold',fontSize:55}}>{this.props.Setcource} {this.props.Setbranch}</h1>
           <h1 class="text-center" style={{marginBottom:'5%',fontFamily:'-moz-initial',color:'green',fontWeight:'bold'}}>Questions</h1>
              
+               
+          {this.state.Questions.map((ques,index) => (
             
-          <form  className="questionbox">
- 
-                <h2 style={{color:'black',textAlign:'center'}}>{this.state.Questions[this.state.s].Question}</h2>
+                   <Fun q={ques.Question} op={ques.findAnswer} c={ques.rightanswer} id={ques.id} k={index+1}/>
 
-                  <div style={{marginLeft:'10%',fontSize:20}}>
-                    <label>
-                      <input
-                        type="radio"
-                        value={this.state.Questions[this.state.s].findAnswer[0]}
-                        checked={this.state.selectedOption ===this.state.Questions[this.state.s].findAnswer[0]}
-                        onChange={this.onValueChange}
-                         
-                      />
-                      {this.state.Questions[this.state.s].findAnswer[0]}
-                    </label>
-                  </div>
-
-
-                  <div style={{marginLeft:'10%',fontSize:20}}>
-                    <label>
-                      <input
-                        type="radio"
-                        value={this.state.Questions[this.state.s].findAnswer[1]}
-                        checked={this.state.selectedOption ===this.state.Questions[this.state.s].findAnswer[1]}
-                        onChange={this.onValueChange}
-                      />
-                      {this.state.Questions[this.state.s].findAnswer[1]}
-                    </label>
-                  </div>
-
-                  <div style={{marginLeft:'10%',fontSize:20}}>
-                    <label  style={{backgroundColor:this.state.setcolor}}>
-                      <input
-                        type="radio"
-                        value={this.state.Questions[this.state.s].findAnswer[2]}
-                        checked={this.state.selectedOption ===this.state.Questions[this.state.s].findAnswer[2]}
-                        onChange={this.onValueChange}
-                      />
-                      {this.state.Questions[this.state.s].findAnswer[2]}
-                    </label>
-                  </div>
-
-                  <div  style={{marginLeft:'10%',fontSize:20}}>
-                    <label>
-                      <input
-                        type="radio"
-                        value={this.state.Questions[this.state.s].findAnswer[3]}
-                        checked={this.state.selectedOption ===this.state.Questions[this.state.s].findAnswer[3]}
-                        onChange={this.onValueChange}
-                      />
-                      {this.state.Questions[this.state.s].findAnswer[3]}
-                    </label>
-                  </div>
-
-                    <div> 
-                        <h2 style={{textAlign:'center',color:'lightgreen'}}>{this.state.correctanswer}</h2>
-                        <h2 style={{textAlign:'center',color:'red'}}>{this.state.wronganswer}</h2>
-                    </div>
-
-
-
-                  <div className="optin">
-                      {this.state.s>=1?  <button className="prequestion"  onClick={this.goprequestion}>  <h2  >Pre</h2></button> :null}
-                     
-                        {this.state.s<len-1?<button  className="nextquestion"  onClick={this.gonextquestion}>  <h2 >Next</h2></button>:null} 
-                  </div>
-
-                
-                </form>
-                  
-                 
-
-
-
-                <div>
-        <button  style={{width:100,marginLeft:'35%'}} onClick={this.toggleHidden.bind(this)} >
-           Calculater
-        </button>
-        {!this.state.isHidden ?
-          <div class="resp-container">
-                    <iframe class="resp-iframe" src="https://www.tcsion.com/OnlineAssessment/ScientificCalculator/Calculator.html"  ></iframe>
-                </div>
-:null
-        }
-      </div>
-
-    
-
-
+             ))}
           </div>
       
     );
   }
 }
   
+const Fun=(props)=>{
+
+  const [name,setName] =useState(props.q);
+  const [fname,setfName] =useState(props.op);
+  const [selected,setSelected] =useState();
+  const [correct,setCorrect] =useState("");
+  const [Wrong,setWrong] =useState("");
+ const onValueChange=(e)=> {
+   
+    if(e.target.value===props.c)
+    {
+      setSelected(e.target.value)
+      console.log("correct")
+      setCorrect("Correct Answer");
+      setWrong("")
+          
+    }
+    
+     
+  
+    else{
+      setSelected(e.target.value)
+      console.log("wrong")
+      setCorrect("");
+      setWrong("Wrong Answer")
+    }
+     
+     
+ }
+
+  
+  return(
+     <>
+         <div class="questionbox">
+           <form  className="questionbox" style={{marginBottom:'5%'}}>
+ 
+    {props.id===0?<h1 style={{color:'black',marginLeft:'8%'}}>{props.k}) {name}</h1>
+      :
+      <div class="row" style={{marginLeft:'8%'}}>
+      <h1>{props.k})</h1><img src={name} width="460px" height="150px" style={{marginLeft:'5%'}} class="img-fluid"/>
+ 
+      </div>
+    }    
+   <div  class="row">
+
+   <div style={{marginLeft:'10%',fontSize:20}} class="col-md-6">
+     <label>
+       <input
+         type="radio"
+         value={fname[0]}
+         checked={selected===fname[0]}
+         onChange={onValueChange}
+          
+       />
+       {fname[0]}
+     </label>
+   </div>
+
+
+   <div style={{ fontSize:20}} class="col-md-3">
+     <label>
+       <input
+         type="radio"
+         value={fname[1]}
+         checked={selected===fname[1]}
+         onChange={onValueChange}
+       />
+       {fname[1]}
+     </label>
+   </div>
+
+   <div style={{ marginLeft:'10%',fontSize:20}} class="col-md-6">
+     <label  >
+       <input
+         type="radio"
+         value={fname[2]}
+         checked={selected===fname[2]}
+         onChange={onValueChange}
+       />
+       {fname[2]}
+     </label>
+   </div>
+
+   <div  style={{  fontSize:20}} class="col-md-3">
+     <label>
+       <input
+         type="radio"
+         value={fname[3]}
+         checked= {selected===fname[3]}
+         onChange={onValueChange}
+       />
+       {fname[3]}
+     </label>
+   </div>
+
+
+   </div>
+
+      
+       <div> 
+                        <h2 style={{textAlign:'center',color:'blue'}}>{correct}</h2>
+                        <h2 style={{textAlign:'center',color:'red'}}>{Wrong}</h2>
+                    </div>
+
+ 
+
+ 
+ </form> 
+         </div>
+  
+   
+     </>
+  )
+}
+
 export default  practice;

@@ -13,7 +13,7 @@ function NavBar() {
             <nav className="navbar">
                 <div className="nav-container">
                         <div style={{marginRight:'50%',marginLeft:'5%'}}>
-                            <img src={Image1} className="nav-logo"/>
+                           <NavLink to="/Home"> <img src={Image1} className="nav-logo"/></NavLink> 
                         </div>
 
                             <ul className={click ? "nav-menu active" : "nav-menu"}>

@@ -13,7 +13,7 @@ import {
   NavLink,
   HashRouter
 } from "react-router-dom";
- 
+import intro from '../../images/2581461.jpg'; 
 import Image1 from '../../images/presentation.png';
 import Image2 from '../../images/project.png';
 import Image3 from '../../images/worker.png';
@@ -34,25 +34,15 @@ const contentStyle = {
 function Home() {
    
   return (
-          <body> 
-          <section style={{backgroundColor:'#5DADE2',paddingTop:'10%',paddingBottom:'20%'  }}>     
-
-            <div>
-            <div class="waveWrapper waveAnimation">
-                <div class="waveWrapperInner bgTop">
-                 
-                  <div class="wave waveTop" style={{backgroundImage:`url('http://front-end-noobs.com/jecko/img/wave-top.png')`}}></div>
-                </div>
-                <div class="waveWrapperInner bgMiddle">
-                  <div class="wave waveMiddle" style={{backgroundImage:`url('http://front-end-noobs.com/jecko/img/wave-mid.png')`}}></div>
-                </div>
-                <div class="waveWrapperInner bgBottom">
-                  <div class="wave waveBottom" style={{backgroundImage:`url('http://front-end-noobs.com/jecko/img/wave-bot.png')`}}></div>
-                </div>
-          </div>
+          <body style={{backgroundColor:'lightgrey'}}> 
+          
+            <div id="intro"  class="container-fluid">
+              <h1 style={{color:'yellow'}}>Welcome to ABCD TEST </h1>
             </div>
-  
-            </section>
+
+
+
+
             <article> 
 
 
